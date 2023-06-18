@@ -35,11 +35,11 @@ function sendSubmit(event) {
   localStorage.removeItem('feedback-form-state');
 }
 
-eventOnReload()
-function eventOnReload() { 
-    let formLoad = JSON.parse(localStorage.getItem('feedback-form-state'));
-    if (!formLoad) {
-      return;
-    }
-};
-  
+eventOnReload();
+function eventOnReload() {
+  let formLoad = JSON.parse(localStorage.getItem('feedback-form-state'));
+  if (formLoad) {
+    emailElement.value = formLoad.email;
+    messageElement.value = formLoad.message;
+  }
+}
